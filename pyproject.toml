@@ -1,0 +1,25 @@
+[project]
+name = "explorekit"
+version = "0.1.0"
+description = "Управляемый exploration и офлайн-оценка политик рекомендаций"
+requires-python = ">=3.11"
+
+[tool.black]
+line-length = 90
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 90
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+ignore = ["E731"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*.ipynb" = ["E402"]

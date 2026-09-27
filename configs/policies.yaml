@@ -1,0 +1,53 @@
+seed: 42
+active_policy: linucb
+policies:
+  epsilon_greedy:
+    type: epsilon_greedy
+    n_actions: 80
+    epsilon: 0.1
+    min_epsilon: 0.01
+    max_epsilon: 0.3
+    whitelist: null
+    blacklist: null
+    exploration_subset: null
+  linucb:
+    type: linucb
+    n_actions: 80
+    context_dim: 3
+    alpha: 1.0
+    temperature: 0.1
+    ope_temperature: 1.0
+    reg: 1.0
+    whitelist: null
+    blacklist: null
+  thompson:
+    type: thompson
+    n_actions: 80
+    context_dim: 3
+    mc_samples: 200
+    reg: 1.0
+    whitelist: null
+    blacklist: null
+  smoke_epsilon_greedy:
+    type: epsilon_greedy
+    n_actions: 5
+    epsilon: 1.0
+    min_epsilon: 0.0
+    max_epsilon: 1.0
+    seed: 0
+  smoke_linucb:
+    type: linucb
+    n_actions: 5
+    context_dim: 3
+    alpha: 0.1
+    temperature: 0.1
+    ope_temperature: 1.0
+    reg: 0.1
+    seed: 0
+  smoke_thompson:
+    type: thompson
+    n_actions: 5
+    context_dim: 3
+    mc_samples: 200
+    reg: 1.0
+    seed: 0

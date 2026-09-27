@@ -1,0 +1,44 @@
+preset_name: aggressive
+seed: 42
+experiment:
+  name: ExploreKit aggressive exploration
+  goal: Compare true CTR, OPE estimates and exploration/cold-item metrics.
+  logging_policy: epsilon_greedy_logging
+policy:
+  config_path: configs/policies.yaml
+  active_policy: epsilon_greedy
+  overrides:
+    epsilon: 0.25
+    min_epsilon: 0.0
+    max_epsilon: 1.0
+simulation:
+  provider: explorekit.simulator.environment
+  n_rounds: 5000
+  base_score_noise: 0.3
+  reward_model_noise: 0.25
+  logging_epsilon: 0.5
+  cold_penalty: 1.2
+  target_ctr: 0.05
+cold_start:
+  max_age_days: 7
+  min_impressions: 20
+  boost_multiplier: 2.0
+  time_to_n: 20
+ope:
+  config_path: configs/ope.yaml
+  max_weight: 15.0
+bootstrap:
+  n_bootstrap: 1000
+  confidence_level: 0.95
+diagnostics:
+  ess_ratio_caution: 0.2
+  ess_ratio_unreliable: 0.05
+  clipped_fraction_caution: 0.05
+  support_violation_caution: 0.01
+open_bandit:
+  data_dir: data/obd
+  campaign: all
+  behavior_policy: random
+output:
+  logs_dir: outputs/logs
+  results_dir: outputs/results
