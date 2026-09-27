@@ -311,3 +311,7 @@ explorekit/
 ├── pyproject.toml
 └── Dockerfile
 ```
+
+## Скринкаст демонстрации
+
+[Смотреть на Яндекс.Диске](https://disk.yandex.ru/d/WxWf2lBwUdACvw) — 5 минут
